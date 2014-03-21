@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Gambiarra</title>
+        <style type="text/css">
+            body {
+                width: 800px;
+                min-height: 500px;
+                overflow: auto;
+            }
+            span.tabulation{
+                padding: 0 0.5em;
+            }
+        </style>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <!-- Nav tabs -->
+        <ul class="nav nav-pills nav-justified">
+            <li class="active"><a href="#start" data-toggle="tab"><span class="tabulation glyphicon glyphicon-home"></span>Início</a></li>
+            <li><a href="#rid" data-toggle="tab"><span class="tabulation glyphicon glyphicon-paperclip"></span>RID</a></li>
+            <li><a href="#horarios" data-toggle="tab"><span class="tabulation glyphicon glyphicon-time"></span>Horários</a></li>
+            <li><a href="#historico" data-toggle="tab"><span class="tabulation glyphicon glyphicon-folder-open"></span>Histórico</a></li>
+            <li><a href="#ementas" data-toggle="tab"><span class="tabulation glyphicon glyphicon-book"></span>Ementas</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="start">
+                <img src="icon_large.png" style="float:left; padding:2em">
+                <div style="display:inline; padding-top:2em">
+                    <h1>Gambiarra 1.0</h1>
+                    <h4>O Gambiarra 1.0 está sob a licença <a href="http://www.gnu.org/licenses/licenses.html#GPL">GNU General Public Licence</a>, o que significa que ele pode ser utilizado livremente para fins educacionais, comerciais e pessoais.</h4>
+                </div>
+            </div>
+            <div class="tab-pane fade in" id="rid">              
+                <div class="alert alert-info">
+                    <h4>Cross-browser compatibility</h4>
+                    <p>Badges won't self collapse in Internet Explorer 8 because it lacks support for the <code>:empty</code> selector.</p>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="horarios">
+                <p>
+                <div class="alert alert-info">
+                    <h4>Cross-browser compatibility</h4>
+                    <p>Badges won't self collapse in Internet Explorer 8 because it lacks support for the <code>:empty</code> selector.</p>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="historico"><p>
+                <div class="alert alert-info">
+                    <h4>Cross-browser compatibility</h4>
+                    <p>Badges won't self collapse in Internet Explorer 8 because it lacks support for the <code>:empty</code> selector.</p>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="ementas"><p>
+                <div class="alert alert-info">
+                    <h4>Pesquise as ementas de qualquer disciplina da UERJ</h4>
+                    <p>Digite apenas o código da disciplina sem os zeros iniciais (por exemplo, para a disciplina "ILE 05-00287 - Literatura Brasileira I" deve-se digitar somente "287"). <br /><br />
+                        Se a disciplina não for encontrada, verifique o código digitado. Se mesmo com o código correto a ementa não surgir, mande um email para <a href="mailto:dep@uerj.br" class="alert-link">dep@uerj.br</a> comunicando a falha.</p>
+                </div>
+                <form method="get" class="form-inline" id="form">
+                    <input type="text" name="codigo" class="form-control" placeholder="Código da disciplina"> <button type="submit" class="btn btn-primary">Pesquisar</button>
+                </form>               
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel"><span class="tabulation glyphicon glyphicon-warning-sign"></span>Aviso</h4>
+                    </div>
+                    <div id="modalContent" class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Magic: do not touch! -->
+        <script src="gambiarra.js"></script>
+    </body>
+</html>
