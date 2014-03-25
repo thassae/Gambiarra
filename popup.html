@@ -35,7 +35,7 @@
             <li class="active"><a href="#start" data-toggle="tab"><span class="tabulation glyphicon glyphicon-home"></span>Início</a></li>
             <li><a href="#rid" data-toggle="tab"><span class="tabulation glyphicon glyphicon-paperclip"></span>RID</a></li>
             <li><a href="#horarios" data-toggle="tab"><span class="tabulation glyphicon glyphicon-time"></span>Horários</a></li>
-            <li><a href="#horarios" data-toggle="tab"><span class="tabulation glyphicon glyphicon-user"></span>Síntese</a></li>
+            <li><a href="#sintese" data-toggle="tab"><span class="tabulation glyphicon glyphicon-user"></span>Síntese</a></li>
             <li><a href="#historico" data-toggle="tab"><span class="tabulation glyphicon glyphicon-folder-open"></span>Histórico</a></li>
             <li><a href="#ementas" data-toggle="tab"><span class="tabulation glyphicon glyphicon-book"></span>Ementas</a></li>
         </ul>
@@ -43,43 +43,65 @@
         <!-- Tab panes -->
         <div class="tab-content">
             <div class="tab-pane fade in active" id="start">
-                <img src="icon_large.png" style="float:left; padding:2em">
+                <img src="icon_large.png" style="float:left; padding:2em" alt="Gambiarra">
                 <div style="display:inline; padding-top:2em">
-                    <h1>Gambiarra 1.0</h1>
-                    <h4>O Gambiarra 1.0 está sob a licença <a href="http://www.gnu.org/licenses/licenses.html#GPL">GNU General Public Licence</a>, o que significa que ele pode ser utilizado livremente para fins educacionais, comerciais e pessoais.</h4>
+                    <h1>Gambiarra</h1>
+                    <h5>O Gambiarra está sob a licença <a href="http://www.gnu.org/licenses/licenses.html#GPL">GNU General Public Licence</a>, o que significa que ele pode ser utilizado livremente para fins educacionais, comerciais e pessoais.</h5>
                 </div>
             </div>
             <div class="tab-pane fade" id="rid">              
                 <div class="alert alert-warning">
-                    <h4>Cross-browser compatibility</h4>
-                    <p>Badges won't self collapse in Internet Explorer 8 because it lacks support for the <code>:empty</code> selector.</p>
+                    <h4>Visualize o seu RID.</h4>
+                    <p>Digite apenas a sua matrícula.</p>
                 </div>
+                <form method="get" class="form-inline" id="formRID" style="text-align:center;">
+                    <input type="text" name="matricula" class="form-control" placeholder="Matrícula (somente números)" size="30" maxlength="12"> <button type="submit" class="btn btn-danger">Pesquisar</button>
+                </form>
             </div>
             <div class="tab-pane fade" id="horarios">
                 <div class="alert alert-warning">
-                    <h4>Cross-browser compatibility</h4>
-                    <p>Badges won't self collapse in Internet Explorer 8 because it lacks support for the <code>:empty</code> selector.</p>
+                    <h4>Visualize os horários de qualquer disciplina da UERJ.</h4>
+                    <p>Digite o código da disciplina sem os zeros iniciais (por exemplo, para a disciplina "ILE 05-00287 - Literatura Brasileira I" deve-se digitar somente "287"), o semestre de interesse e a matrícula, caso queira visualizar a preferencialidade das turmas. <br /><br />
+                        Se a disciplina não for encontrada, verifique o código digitado. Se mesmo com o código correto o horário não for encontrado, procure o seu departamento para maiores esclarecimentos.</p>
                 </div>
+                <form method="get" class="form-inline" id="formHorarios" style="text-align:center;">
+                    <input type="text" name="codigo" class="form-control" placeholder="Código da disciplina">
+                    <select class="form-control" name="periodo">
+                        <option value="1">Primeiro semestre</option>
+                        <option value="2" selected>Segundo semestre</option>
+                    </select>
+                    <select class="form-control" name="ano">
+                        <option value="2014" selected>2014</option>
+                        <option value="2013">2013</option>
+                    </select>
+                    <input type="text" name="matricula" class="form-control" placeholder="Matrícula (somente números)" size="30" maxlength="12"> <button type="submit" class="btn btn-danger">Pesquisar</button>
+                </form>
             </div>
             <div class="tab-pane fade" id="sintese">
                 <div class="alert alert-warning">
-                    <h4>Cross-browser compatibility</h4>
-                    <p>Badges won't self collapse in Internet Explorer 8 because it lacks support for the <code>:empty</code> selector.</p>
+                    <h4>Visualize a síntese da sua graduação.</h4>
+                    <p>Digite apenas a sua matrícula.</p>
                 </div>
+                <form method="get" class="form-inline" id="formSintese" style="text-align:center;">
+                    <input type="text" name="matricula" class="form-control" placeholder="Matrícula (somente números)" size="30" maxlength="12"> <button type="submit" class="btn btn-danger">Pesquisar</button>
+                </form>
             </div>
             <div class="tab-pane fade" id="historico">
                 <div class="alert alert-warning">
-                    <h4>Cross-browser compatibility</h4>
-                    <p>Badges won't self collapse in Internet Explorer 8 because it lacks support for the <code>:empty</code> selector.</p>
+                    <h4>Obtenha o seu histórico de disciplinas cursadas.</h4>
+                    <p>Digite apenas a sua matrícula.</p>
                 </div>
+                <form method="get" class="form-inline" id="formHistorico" style="text-align:center;">
+                    <input type="text" name="matricula" class="form-control" placeholder="Matrícula (somente números)" size="30" maxlength="12"> <button type="submit" class="btn btn-danger">Pesquisar</button>
+                </form>
             </div>
             <div class="tab-pane fade" id="ementas">
                 <div class="alert alert-warning">
-                    <h4>Pesquise as ementas de qualquer disciplina da UERJ</h4>
+                    <h4>Pesquise as ementas de qualquer disciplina da UERJ.</h4>
                     <p>Digite apenas o código da disciplina sem os zeros iniciais (por exemplo, para a disciplina "ILE 05-00287 - Literatura Brasileira I" deve-se digitar somente "287"). <br /><br />
                         Se a disciplina não for encontrada, verifique o código digitado. Se mesmo com o código correto a ementa não surgir, mande um email para <a href="mailto:dep@uerj.br" class="alert-link">dep@uerj.br</a> comunicando a falha.</p>
                 </div>
-                <form method="get" class="form-inline" id="formEmentas">
+                <form method="get" class="form-inline" id="formEmentas" style="text-align:center;">
                     <input type="text" name="codigo" class="form-control" placeholder="Código da disciplina"> <button type="submit" class="btn btn-danger">Pesquisar</button>
                 </form>               
             </div>
