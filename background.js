@@ -39,13 +39,15 @@ function passFilters(url, filters) {
 
 chrome.webRequest.onBeforeSendHeaders.addListener(
         function(details) {
-            var currProfile = {headers: [{name: "Origin", value: "https://www.alunoonline.uerj.br", comment: "", enabled: true}, {name: "Referer", value: "https://www.alunoonline.uerj.br/id_consultas/id_sel_unidade.php", comment: "", enabled: true}], filters: [{host: "", behavior: "true", comment: ""}]};
-            if (currProfile) {
-                if (passFilters(details.url, currProfile.filters)) {
-                    modifyRequestHeaders(details, currProfile.headers);
+            if (details.url.indexOf('uerj') !== -1) {
+                var currProfile = {headers: [{name: "Origin", value: "https://www.alunoonline.uerj.br", comment: "", enabled: true}, {name: "Referer", value: "https://www.alunoonline.uerj.br/id_consultas/id_sel_unidade.php", comment: "", enabled: true}], filters: [{host: "", behavior: "true", comment: ""}]};
+                if (currProfile) {
+                    if (passFilters(details.url, currProfile.filters)) {
+                        modifyRequestHeaders(details, currProfile.headers);
+                    }
                 }
+                return {requestHeaders: details.requestHeaders};
             }
-            return {requestHeaders: details.requestHeaders};
         },
         {urls: []},
 ['requestHeaders', 'blocking']
