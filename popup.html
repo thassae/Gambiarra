@@ -18,6 +18,10 @@
             span.tabulation{
                 padding: 0 0.5em;
             }
+            .modal .modal-body {
+                max-height: 250px;
+                overflow-y: auto;
+            }
         </style>
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -33,11 +37,21 @@
         <!-- Nav tabs -->
         <ul class="nav nav-pills nav-justified">
             <li class="active"><a href="#start" data-toggle="tab"><span class="tabulation glyphicon glyphicon-home"></span>Início</a></li>
-            <li><a href="#rid" data-toggle="tab"><span class="tabulation glyphicon glyphicon-paperclip"></span>RID</a></li>
-            <li><a href="#horarios" data-toggle="tab"><span class="tabulation glyphicon glyphicon-time"></span>Horários</a></li>
-            <li><a href="#sintese" data-toggle="tab"><span class="tabulation glyphicon glyphicon-user"></span>Síntese</a></li>
-            <li><a href="#historico" data-toggle="tab"><span class="tabulation glyphicon glyphicon-folder-open"></span>Histórico</a></li>
-            <li><a href="#ementas" data-toggle="tab"><span class="tabulation glyphicon glyphicon-book"></span>Ementas</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="tabulation glyphicon glyphicon-star"></span>Disciplinas<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#rid" data-toggle="tab"><span class="tabulation glyphicon glyphicon-paperclip"></span>RID</a></li>
+                    <li><a href="#horarios" data-toggle="tab"><span class="tabulation glyphicon glyphicon-time"></span>Horários das turmas</a></li>
+                    <li><a href="#ementas" data-toggle="tab"><span class="tabulation glyphicon glyphicon-book"></span>Ementas das disciplinas</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="tabulation glyphicon glyphicon-user"></span>Aluno<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#sintese" data-toggle="tab"><span class="tabulation glyphicon glyphicon-stats"></span>Síntese da formação</a></li>
+                    <li><a href="#historico" data-toggle="tab"><span class="tabulation glyphicon glyphicon-folder-open"></span>Disciplinas cursadas</a></li>
+                </ul>
+            </li>
         </ul>
 
         <!-- Tab panes -->
@@ -46,7 +60,7 @@
                 <img src="icon_large.png" style="float:left; padding:2em" alt="Gambiarra">
                 <div style="display:inline; padding-top:2em">
                     <h1>Gambiarra</h1>
-                    <h5>O Gambiarra está sob a licença <a href="http://www.gnu.org/licenses/licenses.html#GPL">GNU General Public Licence</a>, o que significa que ele pode ser utilizado livremente para fins educacionais, comerciais e pessoais.</h5>
+                    <h5>O Gambiarra está sob a licença <a href="http://www.gnu.org/licenses/licenses.html#GPL">GNU General Public Licence</a>, o que significa que ele pode ser utilizado livremente para fins educacionais, comerciais e pessoais.<br><br><br><br><br><button id="creditos" class="btn btn-danger">Créditos e agradecimentos</button></h5>
                 </div>
             </div>
             <div class="tab-pane fade" id="rid">              
@@ -65,7 +79,7 @@
                         Se a disciplina não for encontrada, verifique o código digitado. Se mesmo com o código correto o horário não for encontrado, procure o seu departamento para maiores esclarecimentos.</p>
                 </div>
                 <form method="get" class="form-inline" id="formHorarios" style="text-align:center;">
-                    <input type="text" name="codigo" class="form-control" placeholder="Código da disciplina">
+                    <input type="text" name="disciplinas[]" class="form-control" placeholder="Código da disciplina">
                     <select class="form-control" name="periodo">
                         <option value="1">Primeiro semestre</option>
                         <option value="2" selected>Segundo semestre</option>
@@ -112,10 +126,50 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel"><span class="tabulation glyphicon glyphicon-warning-sign"></span>Aviso</h4>
+                        <h4 class="modal-title" id="myModalLabel"></h4>
                     </div>
                     <div id="modalContent" class="modal-body">
-                        ...
+                       
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myAboutLabel"><span class="tabulation glyphicon glyphicon-heart"></span>Sem vocês isso não seria possível! :_D</h4>
+                    </div>
+                    <div id="modalContent" class="modal-body">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">Programação</div>
+                            <div class="panel-body">
+                                <b>Thassae Santos</b> (autor)<br><b>Gustavo Brandão</b> (autor da Gambiarra Original)<br><b>Renan Prata, André Oliveira e Pattrick Queiroga</b> (desenvolvedores de apps voltados para a comunidade UERJiana).
+                            </div>
+                        </div>
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">Pessoal</div>
+                            <div class="panel-body">
+                                <span class="tabulation glyphicon glyphicon-heart"></span><b>Karen e Luigi Rohr</b><span class="tabulation glyphicon glyphicon-heart">
+                            </div>
+                        </div>
+                        <div class="panel panel-warning">
+                            <div class="panel-heading">Panel heading without title</div>
+                            <div class="panel-body">
+                                Panel content
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Panel heading without title</div>
+                            <div class="panel-body">
+                                Panel content
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>

@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 
+$('#creditos').click(function(event) {    
+    $('#aboutModal').modal('show');
+});
+
 $('#formHorarios').submit(function(event) {
     event.preventDefault();
     if ($("#formHorarios input").val() !== '') {
@@ -15,6 +19,7 @@ $('#formHorarios').submit(function(event) {
     }
     else
     {
+        $('#myModalLabel').html('<span class="tabulation glyphicon glyphicon-warning-sign"></span>Aviso');
         $('#modalContent').html('<div class="alert alert-danger">Você realmente precisa digitar a sua matrícula corretamente!<br><br>Cheque se o campo não está em branco ou se não possui caracteres alfanuméricos.</div>');
         $('#alertModal').modal('show');
     }
@@ -31,6 +36,7 @@ $('#formRID').submit(function(event) {
     }
     else
     {
+        $('#myModalLabel').html('<span class="tabulation glyphicon glyphicon-warning-sign"></span>Aviso');
         $('#modalContent').html('<div class="alert alert-danger">Você realmente precisa digitar a sua matrícula corretamente!<br><br>Cheque se o campo não está em branco ou se não possui caracteres alfanuméricos.</div>');
         $('#alertModal').modal('show');
     }
@@ -47,6 +53,7 @@ $('#formSintese').submit(function(event) {
     }
     else
     {
+        $('#myModalLabel').html('<span class="tabulation glyphicon glyphicon-warning-sign"></span>Aviso');
         $('#modalContent').html('<div class="alert alert-danger">Você realmente precisa digitar a sua matrícula corretamente!<br><br>Cheque se o campo não está em branco ou se não possui caracteres alfanuméricos.</div>');
         $('#alertModal').modal('show');
     }
@@ -63,6 +70,7 @@ $('#formHistorico').submit(function(event) {
     }
     else
     {
+        $('#myModalLabel').html('<span class="tabulation glyphicon glyphicon-warning-sign"></span>Aviso');
         $('#modalContent').html('<div class="alert alert-danger">Você realmente precisa digitar a sua matrícula corretamente!<br><br>Cheque se o campo não está em branco ou se não possui caracteres alfanuméricos.</div>');
         $('#alertModal').modal('show');
     }
@@ -80,6 +88,7 @@ $('#formEmentas').submit(function(event) {
     }
     else
     {
+        $('#myModalLabel').html('<span class="tabulation glyphicon glyphicon-warning-sign"></span>Aviso');
         $('#modalContent').html('<div class="alert alert-danger">Você realmente precisa digitar o número da disciplina corretamente!<br><br>Cheque se o campo não está em branco ou se não possui caracteres alfanuméricos.</div>');
         $('#alertModal').modal('show');
     }

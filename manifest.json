@@ -17,5 +17,10 @@
     },
     "background": {
         "scripts": ["jquery.min.js", "background.js"]
-    }
+    },
+    "icons": {
+      "128": "icon_128.png",
+      "16": "icon_16.png",
+      "48": "icon_48.png"
+   }
 }
